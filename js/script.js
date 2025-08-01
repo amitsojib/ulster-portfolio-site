@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = document.getElementById("searchInput").value.toLowerCase();
     alert("You searched for: " + input);
   });
-});
-document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
 
