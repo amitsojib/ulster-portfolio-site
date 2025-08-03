@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* Body styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -12,21 +13,25 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/* Header styles */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #002147;
   padding: 10px 20px;
+  position: relative;
 }
 
-.logo {
+/* Logo image size */
+.logo img {
   height: 60px;
 }
 
+/* Search form styles */
 #searchForm {
   display: flex;
+  align-items: center;
 }
 
 #searchInput {
@@ -44,13 +49,28 @@ header {
   cursor: pointer;
 }
 
-/* Navigation Bar */
+/* Hamburger menu button */
+#nav-toggle {
+  display: none; /* Hidden on desktop */
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+}
+
+/* Navigation bar styles */
 .main-nav {
   background-color: #005bbb;
   padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
+  z-index: 1000;
 }
 
+/* Navigation links container */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -60,6 +80,7 @@ header {
   padding: 0;
 }
 
+/* Navigation link styles */
 .main-nav ul li a {
   color: white;
   text-decoration: none;
@@ -69,26 +90,13 @@ header {
   transition: background-color 0.3s ease;
 }
 
+/* Hover effect on nav links */
 .main-nav ul li a:hover {
   background-color: #003f7d;
   border-radius: 4px;
 }
 
-/* Hamburger Toggle */
-#nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  z-index: 1001;
-}
-
-/* Slideshow */
+/* Slideshow container */
 .slideshow {
   position: relative;
   max-width: 100%;
@@ -96,6 +104,7 @@ header {
   overflow: hidden;
 }
 
+/* Slides style - initially hidden */
 .slides {
   display: none;
   position: absolute;
@@ -103,12 +112,21 @@ header {
   height: 100%;
 }
 
+/* Slide images fit container */
 .slides img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Show active slide */
+.slides.active {
+  display: block;
+}
+
+/* Watermark style if needed */
+/* (Not used in this updated code but can be added if wanted) */
+/*
 .watermark {
   position: absolute;
   top: 20px;
@@ -120,13 +138,15 @@ header {
   font-weight: bold;
   border-radius: 8px;
 }
+*/
 
-/* About Section */
+/* About section container */
 #about {
   padding: 40px 20px;
   background-color: white;
 }
 
+/* Flex container for About section */
 .about-container {
   display: flex;
   justify-content: space-between;
@@ -134,12 +154,14 @@ header {
   flex-wrap: wrap;
 }
 
+/* Left and right columns */
 .about-left,
 .about-right {
   flex: 1 1 45%;
   min-width: 300px;
 }
 
+/* Headings in About section */
 .about-left h2,
 .about-right h2 {
   margin-bottom: 15px;
@@ -147,17 +169,20 @@ header {
   text-align: left;
 }
 
+/* Paragraphs in About left */
 .about-left p {
   text-align: left;
   line-height: 1.6;
 }
 
+/* Links in About left */
 .about-left a {
   color: #005bbb;
   text-decoration: none;
   font-weight: bold;
 }
 
+/* Map iframe styles */
 .about-right iframe {
   width: 100%;
   height: 250px;
@@ -165,7 +190,7 @@ header {
   border: none;
 }
 
-/* Footer */
+/* Footer styles */
 footer {
   background-color: #002147;
   color: white;
@@ -174,42 +199,42 @@ footer {
   margin-top: 40px;
 }
 
-/* Responsive */
+/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-  .main-nav ul {
-    flex-direction: column;
-    display: none;
-    background-color: #005bbb;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    border-radius: 0 0 0 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* Show hamburger button */
+  #nav-toggle {
+    display: block;
   }
 
+  /* Hide nav links by default */
+  .main-nav ul {
+    flex-direction: column;
+    background-color: #005bbb;
+    position: absolute;
+    top: 58px; /* height of header */
+    right: 0;
+    width: 200px;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 0 0 0 8px;
+    z-index: 1000;
+  }
+
+  /* Show nav links when active */
   .main-nav ul.active {
     display: flex;
   }
 
+  /* Nav links stacked vertically */
   .main-nav ul li {
-    margin: 10px 0;
+    margin: 15px 0;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 15px;
   }
 
-  .main-nav ul li a {
-    padding: 8px 0;
-    display: block;
+  /* About section columns stack vertically */
+  .about-left,
+  .about-right {
+    flex: 1 1 100%;
   }
-
-  #nav-toggle {
-    display: block;
-  }
-}
-.main-nav {
-  background-color: #005bbb;
-  padding: 10px 0;
-  position: relative; /* ADD this */
-  z-index: 1000;       /* ADD this */
 }

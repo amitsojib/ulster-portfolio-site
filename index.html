@@ -1,28 +1,40 @@
 <!DOCTYPE html>
+<!-- HTML5 document declaration -->
 <html lang="en">
 <head>
+  <!-- Meta tags for charset and responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Page title -->
   <title>Ulster University Library</title>
+  
+  <!-- External CSS file link -->
   <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- External JS file link with defer -->
   <script src="js/script.js" defer></script>
 </head>
 <body>
 
-  <!-- Header with Logo and Search -->
+  <!-- Header section: logo, search form, hamburger button -->
   <header>
-    <a href="index.html">
-      <img src="images/Logo.png" alt="Ulster University Library Logo" class="logo" />
+    <!-- Logo linking to home -->
+    <a href="index.html" class="logo">
+      <img src="images/Logo.png" alt="Ulster University Library Logo" />
     </a>
 
-    <!-- Search Bar -->
-    <form id="searchForm">
-      <input type="text" id="searchInput" placeholder="Search the library...">
+    <!-- Search form -->
+    <form id="searchForm" class="search-container">
+      <input type="text" id="searchInput" placeholder="Search the library..."/>
       <button type="submit">Search</button>
     </form>
+
+    <!-- Hamburger menu button for mobile -->
+    <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
   </header>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation menu -->
   <nav class="main-nav">
     <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -30,41 +42,30 @@
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
   </nav>
 
-  <!-- Slideshow Banner -->
+  <!-- Slideshow banner -->
   <section class="slideshow">
-    <div class="slides fade">
-      <img src="images/Banner1.jpg" alt="Library Banner 1">
-      <div class="watermark">Welcome</div>
-    </div>
-    <div class="slides fade">
-      <img src="images/Banner2.jpg" alt="Library Banner 2">
-      <div class="watermark">Welcome</div>
-    </div>
-    <div class="slides fade">
-      <img src="images/Banner3.jpg" alt="Library Banner 3">
-      <div class="watermark">Welcome</div>
-    </div>
+    <img src="images/Banner1.jpg" alt="Library Banner 1" class="slides active" />
+    <img src="images/Banner2.jpg" alt="Library Banner 2" class="slides" />
+    <img src="images/Banner3.jpg" alt="Library Banner 3" class="slides" />
   </section>
 
-  <!-- About Section -->
+  <!-- About section -->
   <section id="about">
     <div class="about-container">
-      <!-- Left Side -->
+      <!-- Left side text -->
       <div class="about-left">
         <h2>About Us</h2>
         <p>
           Hello and welcome to Ulster University Library! <br><br>
-          We're here to help you locate all the materials that you'll need, whether it's books, online materials, or a quiet study space. <br><br>
-          Our helpful staff are always on hand to support you throughout your learning and research journey, so that you have everything you need to achieve success.
-          <br><br>
+          We're here to help you locate all the materials that you'll need, whether it's books, online materials, or a quiet study space.<br><br>
+          Our helpful staff are always on hand to support you throughout your learning and research journey.<br><br>
           <a href="portfolio.html">Know more</a>
         </p>
       </div>
 
-      <!-- Right Side: Google Map -->
+      <!-- Right side Google Map -->
       <div class="about-right">
         <h2>Our Location</h2>
         <iframe
@@ -74,8 +75,8 @@
           style="border:0; border-radius: 8px;"
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   </section>

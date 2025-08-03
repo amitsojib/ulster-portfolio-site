@@ -1,47 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Toggle navigation menu on small screens
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
+// Select hamburger menu button and navigation links
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
 
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+// Toggle navigation menu visibility on hamburger click
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Setup slideshow variables
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slides');
+
+function showSlides() {
+  // Hide all slides
+  slides.forEach(slide => {
+    slide.classList.remove('active');
   });
 
-  // 2. Slideshow banner autoplay
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName("slides");
-
-  function showSlides() {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 4000); // Change image every 4 seconds
+  // Move to next slide index
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
   }
 
-  showSlides();
+  // Show current slide
+  slides[slideIndex - 1].classList.add('active');
 
-  // 3. Search bar functionality
-  const searchForm = document.getElementById('searchForm');
-  const searchInput = document.getElementById('searchInput');
+  // Change slide every 4 seconds
+  setTimeout(showSlides, 4000);
+}
 
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const query = searchInput.value.trim();
-    if (query) {
-      // Option 1: Log to console (demo purposes)
-      console.log("Searching for:", query);
+// Start slideshow
+showSlides();
 
-      // Option 2 (optional): Redirect to a search results page
-      // window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-    } else {
-      alert("Please enter a search term.");
-    }
-  });
+// Select search form and input
+const searchForm = document.getElementById('searchForm');
+const searchInput = document.getElementById('searchInput');
+
+// Handle search form submission
+searchForm.addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent page reload
+
+  const query = searchInput.value.trim();
+  if (query === '') {
+    alert('Please enter a search term.');
+    return;
+  }
+
+  // Placeholder for search processing or redirection
+  console.log('Search query:', query);
+
+  // Clear input after submission
+  searchInput.value = '';
 });
