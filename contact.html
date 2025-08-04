@@ -4,28 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Ulster University Library</title>
-  <link rel="stylesheet" href="css/style_contact.css" />
+  
+  <link rel="stylesheet" href="css/style.css" />
+  
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  
+  <script src="js/script.js" defer></script>
 </head>
 <body>
+  
   <header>
-    <nav class="navbar">
-      <div class="logo">
-        <a href="index.html"><img src="images/logo.png" alt="Ulster Logo" /></a>
-      </div>
-      <button id="nav-toggle" class="hamburger">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="courses.html">Courses</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html" class="active">Contact</a>
-      </div>
-      <form id="searchForm" class="search-form">
-        <input type="text" id="searchInput" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
-    </nav>
+    <a href="index.html" class="logo">
+      <img src="images/Logo.png" alt="Ulster University Library Logo" />
+    </a>
+    
+    <form id="searchForm" class="search-container">
+      <input type="text" id="searchInput" placeholder="Search the library..."/>
+      <button type="submit">Search</button>
+    </form>
+    
+    <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
   </header>
+
+  <nav class="main-nav">
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Courses.html">Courses</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
   <main>
     <div class="contact-container">
@@ -60,9 +68,8 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Ulster University Library</p>
+    <p>© 2025 Ulster University Library</p>
   </footer>
-
-  <script src="js/script.js"></script>
+  
 </body>
 </html>

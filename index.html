@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<!-- HTML5 document declaration -->
 <html lang="en">
 <head>
-  <!-- Meta tags for charset and responsive design -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!-- Page title -->
   <title>Ulster University Library</title>
   
-  <!-- External CSS file link -->
   <link rel="stylesheet" href="css/style.css" />
   
-  <!-- External JS file link with defer -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  
   <script src="js/script.js" defer></script>
 </head>
 <body>
 
-  <!-- Header section: logo, search form, hamburger button -->
   <header>
-    <!-- Logo linking to home -->
     <a href="index.html" class="logo">
       <img src="images/Logo.png" alt="Ulster University Library Logo" />
     </a>
-
-    <!-- Search form -->
+    
     <form id="searchForm" class="search-container">
       <input type="text" id="searchInput" placeholder="Search the library..."/>
       <button type="submit">Search</button>
     </form>
-
-    <!-- Hamburger menu button for mobile -->
+    
     <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
   </header>
 
-  <!-- Navigation menu -->
   <nav class="main-nav">
     <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -44,17 +35,14 @@
     </ul>
   </nav>
 
-  <!-- Slideshow banner -->
   <section class="slideshow">
     <img src="images/Banner1.jpg" alt="Library Banner 1" class="slides active" />
     <img src="images/Banner2.jpg" alt="Library Banner 2" class="slides" />
     <img src="images/Banner3.jpg" alt="Library Banner 3" class="slides" />
   </section>
 
-  <!-- About section -->
   <section id="about">
     <div class="about-container">
-      <!-- Left side text -->
       <div class="about-left">
         <h2>About Us</h2>
         <p>
@@ -65,11 +53,10 @@
         </p>
       </div>
 
-      <!-- Right side Google Map -->
       <div class="about-right">
         <h2>Our Location</h2>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.3017003419423!2d-0.11270985659854209!3d51.52384407783933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b8acd2391f3%3A0x32faa8d65e377c!2sQA!5e0!3m2!1sen!2suk!4v1754042149396!5m2!1sen!2suk"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2315.656345632607!2d-5.929851884144342!3d54.60670678028711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486103632f05d5d3%3A0xc6a8274d754b238!2sUlster%20University%20Belfast%20Campus!5e0!3m2!1sen!2suk!4v1628082987163!5m2!1sen!2suk"
           width="100%"
           height="250"
           style="border:0; border-radius: 8px;"
@@ -81,9 +68,8 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Ulster University Library</p>
+    <p>© 2025 Ulster University Library</p>
   </footer>
 
 </body>

@@ -1,78 +1,51 @@
-// Select hamburger menu button and navigation links
-const navToggle = document.getElementById('nav-toggle');
-const navLinks = document.getElementById('nav-links');
+// js/script.js
 
-// Toggle navigation menu visibility on hamburger click
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+// Ensure the code runs after the DOM is ready
+$(document).ready(function() {
 
-// Setup slideshow variables
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slides');
-
-function showSlides() {
-  // Hide all slides
-  slides.forEach(slide => {
-    slide.classList.remove('active');
-  });
-
-  // Move to next slide index
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-
-  // Show current slide
-  slides[slideIndex - 1].classList.add('active');
-
-  // Change slide every 4 seconds
-  setTimeout(showSlides, 4000);
-}
-
-// Start slideshow
-showSlides();
-
-// Select search form and input
-const searchForm = document.getElementById('searchForm');
-const searchInput = document.getElementById('searchInput');
-
-// Handle search form submission
-searchForm.addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent page reload
-
-  const query = searchInput.value.trim();
-  if (query === '') {
-    alert('Please enter a search term.');
-    return;
-  }
-
-  // Placeholder for search processing or redirection
-  console.log('Search query:', query);
-
-  // Clear input after submission
-  searchInput.value = '';
-});
-$(document).ready(function () {
-  // Optional: if you add hamburger toggle later
-  $('#nav-toggle').on('click', function () {
+  // Hamburger menu toggle using jQuery
+  // This code will now work on all pages with the unified HTML structure
+  $('#nav-toggle').on('click', function() {
     $('#nav-links').toggleClass('active');
   });
 
-  // Contact form submission
-$(document).ready(function () {
-  // Hamburger menu toggle
-  $('#nav-toggle').click(function () {
-    $('#nav-links').toggleClass('active');
+  // Slideshow functionality (from your original code)
+  let slideIndex = 0;
+  const slides = $('.slides');
+
+  function showSlides() {
+    if (slides.length > 0) {
+      slides.removeClass('active');
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides.eq(slideIndex - 1).addClass('active');
+      setTimeout(showSlides, 4000);
+    }
+  }
+  showSlides();
+
+  // Search form submission handler
+  const searchForm = $('#searchForm');
+  const searchInput = $('#searchInput');
+
+  searchForm.on('submit', function(e) {
+    e.preventDefault();
+    const query = searchInput.val().trim();
+    if (query === '') {
+      alert('Please enter a search term.');
+      return;
+    }
+    console.log('Search query:', query);
+    searchInput.val('');
   });
 
-  // Contact form validation and cookie storage
-  $('#contactForm').on('submit', function (e) {
+  // Contact form validation and cookie storage (for the contact page)
+  $('#contactForm').on('submit', function(e) {
     e.preventDefault();
 
     let isValid = true;
-
-    // Remove old error styles
     $('input, textarea').removeClass('error');
 
     const name = $('#name').val().trim();
@@ -99,7 +72,6 @@ $(document).ready(function () {
 
     if (!isValid) return;
 
-    // Store in cookies
     document.cookie = `contactName=${name}; path=/`;
     document.cookie = `contactEmail=${email}; path=/`;
 

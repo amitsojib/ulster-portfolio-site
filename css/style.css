@@ -29,7 +29,7 @@ header {
 }
 
 /* Search form styles */
-#searchForm {
+.search-container {
   display: flex;
   align-items: center;
 }
@@ -40,7 +40,7 @@ header {
   border-radius: 4px 0 0 4px;
 }
 
-#searchForm button {
+.search-container button {
   padding: 6px 12px;
   border: none;
   background-color: #005bbb;
@@ -91,7 +91,8 @@ header {
 }
 
 /* Hover effect on nav links */
-.main-nav ul li a:hover {
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
   background-color: #003f7d;
   border-radius: 4px;
 }
@@ -123,22 +124,6 @@ header {
 .slides.active {
   display: block;
 }
-
-/* Watermark style if needed */
-/* (Not used in this updated code but can be added if wanted) */
-/*
-.watermark {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px 20px;
-  font-size: 2.5rem;
-  font-weight: bold;
-  border-radius: 8px;
-}
-*/
 
 /* About section container */
 #about {
@@ -190,6 +175,50 @@ header {
   border: none;
 }
 
+/* Contact Section (added from your style_contact.css) */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.contact-form,
+.contact-info {
+  flex: 1 1 300px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input.error, textarea.error {
+  border: 2px solid red;
+}
+
+button[type="submit"] {
+  background: #004080;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #0066cc;
+}
+
+
 /* Footer styles */
 footer {
   background-color: #002147;
@@ -206,7 +235,16 @@ footer {
     display: block;
   }
 
-  /* Hide nav links by default */
+  /* Hide search bar and align header items */
+  .search-container {
+    display: none;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+
+  /* Hide nav links by default and set properties for mobile menu */
   .main-nav ul {
     flex-direction: column;
     background-color: #005bbb;
@@ -214,13 +252,13 @@ footer {
     top: 58px; /* height of header */
     right: 0;
     width: 200px;
-    display: none;
+    display: none; /* This is the key line to hide it by default */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-radius: 0 0 0 8px;
     z-index: 1000;
   }
 
-  /* Show nav links when active */
+  /* Show nav links when the 'active' class is added by jQuery */
   .main-nav ul.active {
     display: flex;
   }
@@ -236,5 +274,10 @@ footer {
   .about-left,
   .about-right {
     flex: 1 1 100%;
+  }
+
+  /* Contact section stacks vertically */
+  .contact-container {
+    flex-direction: column;
   }
 }
