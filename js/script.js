@@ -4,12 +4,11 @@
 $(document).ready(function() {
 
   // Hamburger menu toggle using jQuery
-  // This code will now work on all pages with the unified HTML structure
   $('#nav-toggle').on('click', function() {
     $('#nav-links').toggleClass('active');
   });
 
-  // Slideshow functionality (from your original code)
+  // Slideshow functionality
   let slideIndex = 0;
   const slides = $('.slides');
 
@@ -50,6 +49,8 @@ $(document).ready(function() {
 
     const name = $('#name').val().trim();
     const email = $('#email').val().trim();
+    // NEW: Get phone number value
+    const phone = $('#phone').val().trim();
     const message = $('#message').val().trim();
     const termsChecked = $('#terms').is(':checked');
 
@@ -59,6 +60,11 @@ $(document).ready(function() {
     }
     if (email === '') {
       $('#email').addClass('error');
+      isValid = false;
+    }
+    // NEW: Validate phone number field
+    if (phone === '') {
+      $('#phone').addClass('error');
       isValid = false;
     }
     if (message === '') {
@@ -72,8 +78,11 @@ $(document).ready(function() {
 
     if (!isValid) return;
 
+    // Store in cookies
     document.cookie = `contactName=${name}; path=/`;
     document.cookie = `contactEmail=${email}; path=/`;
+    // NEW: Store phone number in a cookie
+    document.cookie = `contactPhone=${phone}; path=/`;
 
     alert('Message sent successfully!');
     $(this).trigger('reset');
