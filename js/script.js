@@ -94,3 +94,6 @@ $(document).ready(function() {
     $('#nav-links').toggleClass('active');
   });
 });
+$('#nav-toggle').on('click', function () {
+  $('#nav-links').toggleClass('active');
+});
