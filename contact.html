@@ -3,65 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - UU Library</title>
-
+  <title>Contact - Ulster University Library</title>
   <link rel="stylesheet" href="css/style_contact.css" />
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 <body>
   <header>
-    <div class="navbar">
+    <nav class="navbar">
       <div class="logo">
-        <img src="images/logo.png" alt="Library Logo" />
+        <a href="index.html"><img src="images/logo.png" alt="Ulster Logo" /></a>
       </div>
-      <nav class="nav-links" id="nav-links">
+      <button id="nav-toggle" class="hamburger">☰</button>
+      <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="courses.html">Courses</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="contact.html" class="active">Contact</a>
-      </nav>
-      <button id="nav-toggle" class="hamburger">&#9776;</button>
+      </div>
       <form id="searchForm" class="search-form">
-        <input type="text" id="searchInput" placeholder="Search the library..." />
+        <input type="text" id="searchInput" placeholder="Search..." />
         <button type="submit">Search</button>
       </form>
-    </div>
+    </nav>
   </header>
 
-  <main class="contact-container">
-    <section class="contact-form">
-      <h2>Contact Us</h2>
-      <form id="contactForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required />
-        
-        <label for="phone">Phone:</label>
-        <input type="number" id="phone" required />
+  <main>
+    <div class="contact-container">
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm" novalidate>
+          <label for="name">Name*</label>
+          <input type="text" id="name" name="name" required />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="email" required />
 
-        <label for="message">Message:</label>
-        <textarea id="message" rows="5" required></textarea>
+          <label for="message">Message*</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
 
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
+          <label>
+            <input type="checkbox" id="terms" />
+            I accept the terms and conditions
+          </label>
 
-    <aside class="contact-info">
-      <h3>Terms & Assistance</h3>
-      <p>
-        Thank you for reaching out. We typically respond within 24–48 hours.
-        For urgent queries, please call the help desk or visit the main office
-        during working hours.
-      </p>
-    </aside>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h3>Our Address</h3>
+        <p>Ulster University Library</p>
+        <p>York Street, Belfast BT15 1ED</p>
+        <p>Email: library@ulster.ac.uk</p>
+        <p>Phone: 028 7012 3456</p>
+      </div>
+    </div>
   </main>
 
-  <script src="js/script.js"></script>
-    <!-- Footer -->
   <footer>
     <p>&copy; 2025 Ulster University Library</p>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

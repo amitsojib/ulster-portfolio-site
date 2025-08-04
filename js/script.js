@@ -60,40 +60,50 @@ $(document).ready(function () {
   });
 
   // Contact form submission
+$(document).ready(function () {
+  // Hamburger menu toggle
+  $('#nav-toggle').click(function () {
+    $('#nav-links').toggleClass('active');
+  });
+
+  // Contact form validation and cookie storage
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
 
-    if (!$('#terms').is(':checked')) {
+    let isValid = true;
+
+    // Remove old error styles
+    $('input, textarea').removeClass('error');
+
+    const name = $('#name').val().trim();
+    const email = $('#email').val().trim();
+    const message = $('#message').val().trim();
+    const termsChecked = $('#terms').is(':checked');
+
+    if (name === '') {
+      $('#name').addClass('error');
+      isValid = false;
+    }
+    if (email === '') {
+      $('#email').addClass('error');
+      isValid = false;
+    }
+    if (message === '') {
+      $('#message').addClass('error');
+      isValid = false;
+    }
+    if (!termsChecked) {
       alert('You must accept the terms and conditions.');
-      return;
+      isValid = false;
     }
 
-    const name = $('#name').val();
-    const email = $('#email').val();
-    const message = $('#message').val();
+    if (!isValid) return;
 
-    // Store data in a cookie
+    // Store in cookies
     document.cookie = `contactName=${name}; path=/`;
     document.cookie = `contactEmail=${email}; path=/`;
 
     alert('Message sent successfully!');
-
-    // Clear the form
     $(this).trigger('reset');
   });
-
-  // Optional: Cookie retrieval logic
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
-});
-$(document).ready(function() {
-  $('#nav-toggle').click(function() {
-    $('#nav-links').toggleClass('active');
-  });
-});
-$('#nav-toggle').on('click', function () {
-  $('#nav-links').toggleClass('active');
 });
