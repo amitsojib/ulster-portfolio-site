@@ -53,3 +53,39 @@ searchForm.addEventListener('submit', function(e) {
   // Clear input after submission
   searchInput.value = '';
 });
+$(document).ready(function () {
+  // Optional: if you add hamburger toggle later
+  $('#nav-toggle').on('click', function () {
+    $('#nav-links').toggleClass('active');
+  });
+
+  // Contact form submission
+  $('#contactForm').on('submit', function (e) {
+    e.preventDefault();
+
+    if (!$('#terms').is(':checked')) {
+      alert('You must accept the terms and conditions.');
+      return;
+    }
+
+    const name = $('#name').val();
+    const email = $('#email').val();
+    const message = $('#message').val();
+
+    // Store data in a cookie
+    document.cookie = `contactName=${name}; path=/`;
+    document.cookie = `contactEmail=${email}; path=/`;
+
+    alert('Message sent successfully!');
+
+    // Clear the form
+    $(this).trigger('reset');
+  });
+
+  // Optional: Cookie retrieval logic
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+});
