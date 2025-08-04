@@ -397,3 +397,30 @@ footer {
 #accept-cookies-btn:hover {
   background-color: #003f7d;
 }
+/* NEW: Styles for the social media links */
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links h4 {
+  color: #002147;
+  margin-bottom: 10px;
+}
+
+.social-links ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+.social-links ul li img {
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.social-links ul li img:hover {
+  transform: scale(1.1);
+}
