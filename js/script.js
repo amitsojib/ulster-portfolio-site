@@ -1,6 +1,5 @@
 // js/script.js
 
-// Ensure the code runs after the DOM is ready
 $(document).ready(function() {
 
   // Hamburger menu toggle using jQuery
@@ -49,11 +48,11 @@ $(document).ready(function() {
 
     const name = $('#name').val().trim();
     const email = $('#email').val().trim();
-    // NEW: Get phone number value
     const phone = $('#phone').val().trim();
     const message = $('#message').val().trim();
     const termsChecked = $('#terms').is(':checked');
 
+    // Validation checks
     if (name === '') {
       $('#name').addClass('error');
       isValid = false;
@@ -62,7 +61,6 @@ $(document).ready(function() {
       $('#email').addClass('error');
       isValid = false;
     }
-    // NEW: Validate phone number field
     if (phone === '') {
       $('#phone').addClass('error');
       isValid = false;
@@ -72,19 +70,51 @@ $(document).ready(function() {
       isValid = false;
     }
     if (!termsChecked) {
-      alert('You must accept the terms and conditions.');
+      // NEW: Show modal for terms and conditions error
+      showModal('Error', 'You must accept the terms and conditions to proceed.');
       isValid = false;
     }
 
     if (!isValid) return;
 
-    // Store in cookies
+    // If validation passes, store cookies and show success modal
     document.cookie = `contactName=${name}; path=/`;
     document.cookie = `contactEmail=${email}; path=/`;
-    // NEW: Store phone number in a cookie
     document.cookie = `contactPhone=${phone}; path=/`;
+    
+    // NEW: Show modal for success message
+    showModal('Message Sent!', 'Thank you for contacting us. We will get back to you shortly.');
 
-    alert('Message sent successfully!');
+    // Clear the form after a successful submission
     $(this).trigger('reset');
   });
+
+  // NEW: Reusable function to show the modal with custom content
+  const modal = $('#confirmation-modal');
+  const modalTitle = $('#modal-title');
+  const modalMessage = $('#modal-message');
+
+  function showModal(title, message) {
+    modalTitle.text(title);
+    modalMessage.text(message);
+    modal.addClass('show');
+  }
+  
+  // Code to handle closing the modal (remains the same)
+  const closeButton = $('.close-button');
+  const modalCloseBtn = $('.modal-close-btn');
+
+  function closeModal() {
+    modal.removeClass('show');
+  }
+
+  closeButton.on('click', closeModal);
+  modalCloseBtn.on('click', closeModal);
+
+  $(window).on('click', function(event) {
+    if ($(event.target).is(modal)) {
+      closeModal();
+    }
+  });
+
 });

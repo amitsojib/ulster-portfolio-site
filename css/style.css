@@ -272,3 +272,75 @@ footer {
 
   /* ... other rules ... */
 }
+/* All your existing CSS goes here... */
+
+/* NEW: Styles for the pop-up modal */
+.modal {
+  position: fixed;
+  z-index: 10000; /* Ensure it's on top of everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  display: none; /* Hidden by default */
+}
+
+.modal.show {
+  display: flex; /* Display as a flexbox when the 'show' class is added */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+  color: #002147;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-close-btn {
+  background-color: #005bbb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background-color: #003f7d;
+}
