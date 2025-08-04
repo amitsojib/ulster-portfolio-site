@@ -52,7 +52,6 @@ $(document).ready(function() {
     const message = $('#message').val().trim();
     const termsChecked = $('#terms').is(':checked');
 
-    // Validation checks
     if (name === '') {
       $('#name').addClass('error');
       isValid = false;
@@ -70,26 +69,22 @@ $(document).ready(function() {
       isValid = false;
     }
     if (!termsChecked) {
-      // NEW: Show modal for terms and conditions error
       showModal('Error', 'You must accept the terms and conditions to proceed.');
       isValid = false;
     }
 
     if (!isValid) return;
 
-    // If validation passes, store cookies and show success modal
     document.cookie = `contactName=${name}; path=/`;
     document.cookie = `contactEmail=${email}; path=/`;
     document.cookie = `contactPhone=${phone}; path=/`;
     
-    // NEW: Show modal for success message
     showModal('Message Sent!', 'Thank you for contacting us. We will get back to you shortly.');
 
-    // Clear the form after a successful submission
     $(this).trigger('reset');
   });
 
-  // NEW: Reusable function to show the modal with custom content
+  // Reusable function to show the modal with custom content
   const modal = $('#confirmation-modal');
   const modalTitle = $('#modal-title');
   const modalMessage = $('#modal-message');
@@ -100,7 +95,7 @@ $(document).ready(function() {
     modal.addClass('show');
   }
   
-  // Code to handle closing the modal (remains the same)
+  // Code to handle closing the confirmation modal
   const closeButton = $('.close-button');
   const modalCloseBtn = $('.modal-close-btn');
 
@@ -115,6 +110,29 @@ $(document).ready(function() {
     if ($(event.target).is(modal)) {
       closeModal();
     }
+  });
+
+  // NEW: Cookie Consent Pop-up Logic
+  const cookieModal = $('#cookie-consent-modal');
+  const acceptBtn = $('#accept-cookies-btn');
+
+  // Check if the cookie exists
+  function checkCookie() {
+    return document.cookie.split(';').some((item) => item.trim().startsWith('cookieAccepted='));
+  }
+
+  // Show the modal if the cookie is not set
+  if (cookieModal.length && !checkCookie()) {
+    cookieModal.addClass('show');
+  }
+
+  // Set the cookie and hide the modal on click
+  acceptBtn.on('click', function() {
+    // Set a cookie that expires in 1 year
+    const d = new Date();
+    d.setFullYear(d.getFullYear() + 1);
+    document.cookie = `cookieAccepted=true; expires=${d.toUTCString()}; path=/`;
+    cookieModal.removeClass('show');
   });
 
 });
