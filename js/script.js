@@ -89,3 +89,8 @@ $(document).ready(function () {
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 });
+$(document).ready(function() {
+  $('#nav-toggle').click(function() {
+    $('#nav-links').toggleClass('active');
+  });
+});

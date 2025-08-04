@@ -117,3 +117,56 @@ header {
   border: 2px solid red !important;
   background-color: #ffe5e5;
 }
+/* Hamburger button - hidden on desktop */
+#nav-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  /* Show hamburger */
+  #nav-toggle {
+    display: block;
+  }
+
+  /* Hide nav-links initially */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #005bb5;
+    position: absolute;
+    top: 60px; /* Adjust as per header height */
+    right: 0;
+    width: 200px;
+    border-radius: 0 0 0 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  /* Show nav-links when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Nav links spacing on mobile */
+  .nav-links a {
+    padding: 12px 20px;
+    text-align: right;
+  }
+
+  /* Optional: adjust logo size or position */
+  .logo img {
+    height: 50px;
+  }
+
+  /* Make navbar position relative to position absolute nav-links */
+  .navbar {
+    position: relative;
+  }
+}
