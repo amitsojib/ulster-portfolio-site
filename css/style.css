@@ -175,7 +175,7 @@ header {
   border: none;
 }
 
-/* Contact Section (added from your style_contact.css) */
+/* Contact Section */
 .contact-container {
   display: flex;
   flex-wrap: wrap;
@@ -195,13 +195,15 @@ header {
   gap: 10px;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-input.error, textarea.error {
+input.error,
+textarea.error {
   border: 2px solid red;
 }
 
@@ -218,7 +220,6 @@ button[type="submit"]:hover {
   background: #0066cc;
 }
 
-
 /* Footer styles */
 footer {
   background-color: #002147;
@@ -229,66 +230,65 @@ footer {
 }
 
 /* Responsive styles for smaller screens */
-/* All your existing CSS goes here... */
-
-/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   /* Show hamburger button */
   #nav-toggle {
     display: block;
   }
-  
+
   /* Make the header flexible and allow content to wrap */
   header {
-    flex-wrap: wrap; /* Allows items to move to a new line */
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
   /* Style the search bar to take up the full width below the header */
   .search-container {
-    display: flex; /* Ensure it's visible */
+    display: flex;
     width: 100%;
-    order: 3; /* This moves the search bar to the end of the flex order */
-    margin-top: 10px; /* Add some space between it and the top elements */
+    order: 3;
+    margin-top: 10px;
   }
 
   #searchInput {
-    flex-grow: 1; /* Make the input field take up available space */
+    flex-grow: 1;
   }
 
-  /* Other rules for navigation, etc. */
+  /* The navigation list is a column, positioned absolutely, and hidden by default */
   .main-nav ul {
     flex-direction: column;
     background-color: #005bbb;
     position: absolute;
-    top: 100px; /* Adjust this value if needed based on the new header height */
+    top: 100px;
     right: 0;
     width: 200px;
     display: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 0 8px;
     z-index: 1000;
   }
-
-  /* ... other rules ... */
 }
-/* All your existing CSS goes here... */
+
+/* This is the key rule that shows the menu when the 'active' class is toggled by JS */
+.main-nav ul.active {
+  display: flex;
+}
 
 /* NEW: Styles for the pop-up modal */
 .modal {
   position: fixed;
-  z-index: 10000; /* Ensure it's on top of everything */
+  z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
-  display: none; /* Hidden by default */
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
 }
 
 .modal.show {
-  display: flex; /* Display as a flexbox when the 'show' class is added */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -301,7 +301,7 @@ footer {
   width: 90%;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h3 {
@@ -344,6 +344,7 @@ footer {
 .modal-close-btn:hover {
   background-color: #003f7d;
 }
+
 /* NEW: Styles for the cookie consent pop-up */
 #cookie-consent-modal {
   position: fixed;
@@ -353,9 +354,9 @@ footer {
   background-color: #002147;
   color: white;
   padding: 15px 20px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
   z-index: 9999;
-  display: none; /* Hidden by default */
+  display: none;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -397,6 +398,7 @@ footer {
 #accept-cookies-btn:hover {
   background-color: #003f7d;
 }
+
 /* NEW: Styles for the social media links */
 .social-links {
   margin-top: 20px;
