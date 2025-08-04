@@ -229,55 +229,46 @@ footer {
 }
 
 /* Responsive styles for smaller screens */
+/* All your existing CSS goes here... */
+
+/* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   /* Show hamburger button */
   #nav-toggle {
     display: block;
   }
-
-  /* Hide search bar and align header items */
-  .search-container {
-    display: none;
-  }
-
+  
+  /* Make the header flexible and allow content to wrap */
   header {
+    flex-wrap: wrap; /* Allows items to move to a new line */
     justify-content: space-between;
   }
 
-  /* Hide nav links by default and set properties for mobile menu */
+  /* Style the search bar to take up the full width below the header */
+  .search-container {
+    display: flex; /* Ensure it's visible */
+    width: 100%;
+    order: 3; /* This moves the search bar to the end of the flex order */
+    margin-top: 10px; /* Add some space between it and the top elements */
+  }
+
+  #searchInput {
+    flex-grow: 1; /* Make the input field take up available space */
+  }
+
+  /* Other rules for navigation, etc. */
   .main-nav ul {
     flex-direction: column;
     background-color: #005bbb;
     position: absolute;
-    top: 58px; /* height of header */
+    top: 100px; /* Adjust this value if needed based on the new header height */
     right: 0;
     width: 200px;
-    display: none; /* This is the key line to hide it by default */
+    display: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-radius: 0 0 0 8px;
     z-index: 1000;
   }
 
-  /* Show nav links when the 'active' class is added by jQuery */
-  .main-nav ul.active {
-    display: flex;
-  }
-
-  /* Nav links stacked vertically */
-  .main-nav ul li {
-    margin: 15px 0;
-    text-align: right;
-    padding-right: 15px;
-  }
-
-  /* About section columns stack vertically */
-  .about-left,
-  .about-right {
-    flex: 1 1 100%;
-  }
-
-  /* Contact section stacks vertically */
-  .contact-container {
-    flex-direction: column;
-  }
+  /* ... other rules ... */
 }
