@@ -111,7 +111,7 @@ $(document).ready(function() {
       closeModal();
     }
   });
-
+  
   // NEW: Cookie Consent Pop-up Logic
   const cookieModal = $('#cookie-consent-modal');
   const acceptBtn = $('#accept-cookies-btn');
