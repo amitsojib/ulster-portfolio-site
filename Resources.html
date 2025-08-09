@@ -1,40 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ulster University Library</title>
-  
-  <link rel="stylesheet" href="css/style.css" />
-  
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  
-  <script src="js/script.js" defer></script>
+  <title>Library Resources – Ulster University Library</title>
+
+  <!-- link to your existing stylesheet -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- OPTIONAL new CSS (append to style.css) -->
+  <style>
+    /* ===== RESOURCE CARDS ===== */
+    .resource-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+      padding:2rem 1rem;
+    }
+    .resource-box{
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 2px 5px rgba(0,0,0,.1);
+      display:flex;
+      flex-direction:column;
+      transition:transform .2s;
+    }
+    .resource-box:hover{transform:translateY(-4px);}
+    .resource-box img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+    .resource-info{
+      padding:1rem;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .resource-info h2{
+      margin-bottom:.5rem;
+      font-size:1.25rem;
+      color:#005a9c;
+    }
+    .resource-info p{
+      flex:1;
+      margin-bottom:1rem;
+      font-size:.95rem;
+    }
+    .btn{
+      align-self:flex-start;
+      background:#005a9c;
+      color:#fff;
+      padding:.6rem 1.2rem;
+      border-radius:4px;
+      text-decoration:none;
+      font-size:.9rem;
+    }
+    .btn:hover{background:#004070;}
+  </style>
 </head>
+
 <body>
+<!-- ================= HEADER ================= -->
+<header>
+  <a href="index.html" class="logo">
+    <img src="images/Logo.png" alt="Ulster University Library Logo"/>
+  </a>
 
-  <header>
-    <a href="index.html" class="logo">
-      <img src="images/Logo.png" alt="Ulster University Library Logo" />
-    </a>
-    
-    <form id="searchForm" class="search-container">
-      <input type="text" id="searchInput" placeholder="Search the library..."/>
-      <button type="submit">Search</button>
-    </form>
-    
-    <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
-  </header>
+  <form id="searchForm" class="search-container">
+    <input type="text" id="searchInput" placeholder="Search the library..."/>
+    <button type="submit">Search</button>
+  </form>
 
-  <nav class="main-nav">
-    <ul id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Resources.html">Resources</a></li>
-      <li><a href="Events-Workshops.html">Events-Workshops</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</body>  
-  <footer>
-    <p>© 2025 Ulster University Library</p>
-  </footer> 
+  <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+</header>
+
+<nav class="main-nav">
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Resources.html">Resources</a></li>
+    <li><a href="Events-Workshops.html">Events-Workshops</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="content-container">
+  <h1>Library Resources</h1>
+  <p>Explore our key resources to support your academic journey.</p>
+
+  <div class="resource-list">
+    <!-- Research Databases -->
+    <div class="resource-box">
+      <img src="images/research-databases.jpg" alt="Research Databases">
+      <div class="resource-info">
+        <h2>Research Databases</h2>
+        <p>Find academic articles and research papers from databases like JSTOR, Scopus, and ProQuest.</p>
+        <a href="research-databases.html" class="btn" target="_blank">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Online Journals & E-Books -->
+    <div class="resource-box">
+      <img src="images/online-journals.jpg" alt="Online Journals and E-Books">
+      <div class="resource-info">
+        <h2>Online Journals & E-Books</h2>
+        <p>Access thousands of e-books and scholarly journals online with your university account.</p>
+        <a href="online-journals.html" class="btn" target="_blank">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Research Guides -->
+    <div class="resource-box">
+      <img src="images/research-guides.jpg" alt="Research Guides">
+      <div class="resource-info">
+        <h2>Research Guides</h2>
+        <p>Guides created by librarians to help you research effectively in your field of study.</p>
+        <a href="research-guides.html" class="btn" target="_blank">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Interlibrary Loan -->
+    <div class="resource-box">
+      <img src="images/interlibrary-loan.jpg" alt="Interlibrary Loan">
+      <div class="resource-info">
+        <h2>Interlibrary Loan</h2>
+        <p>Borrow books, articles and other materials from partner libraries worldwide.</p>
+        <a href="interlibrary-loan.html" class="btn" target="_blank">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Printing & Scanning -->
+    <div class="resource-box">
+      <img src="images/printing-scanning.jpg" alt="Printing & Scanning">
+      <div class="resource-info">
+        <h2>Printing & Scanning</h2>
+        <p>Locations, prices and how-to for printers, copiers and scanners on every floor.</p>
+        <a href="printing-scanning.html" class="btn" target="_blank">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Accessibility Services -->
+    <div class="resource-box">
+      <img src="images/accessibility-services.jpg" alt="Accessibility Services">
+      <div class="resource-info">
+        <h2>Accessibility Services</h2>
+        <p>Support and assistive technology for students and staff with disabilities.</p>
+        <a href="accessibility-services.html" class="btn" target="_blank">Learn More</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>© 2025 Ulster University Library</p>
+</footer>
+
+<!-- cookie consent -->
+<div id="cookie-consent-modal">
+  <div class="cookie-content">
+    <p>This website uses cookies to ensure you get the best experience on our site. <a href="#">Learn more</a></p>
+    <button id="accept-cookies-btn">Accept</button>
+  </div>
+</div>
+
+<!-- scripts -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="js/script.js" defer></script>
+
+<!-- Mobile nav toggle -->
+<script>
+$(document).on("click", "#nav-toggle", function () {
+  $(".main-nav").toggleClass("open");
+});
+</script>
+
+<!-- ALWAYS redirect to login unless coming from login.html -->
+<script>
+$(document).ready(function(){
+  if (document.referrer.indexOf("login.html") === -1) {
+    window.location.href = "login.html";
+  }
+});
+</script>
+
+</body>
+</html>
