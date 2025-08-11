@@ -495,6 +495,28 @@ footer {
 .card .btn:hover {
     background-color: #003f7d;
 }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive: stack to fewer columns on smaller screens */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Additional login page styles */
     .login-container {
       max-width: 400px;
