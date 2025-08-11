@@ -171,5 +171,10 @@ $(document).ready(function() {
       modal.addClass('show');
     });
   }
-
+// NEW: Handle "Register" button clicks for the events page
+  $('.register-btn').on('click', function() {
+    // Get the title of the event from the h3 tag inside the same card
+    const eventTitle = $(this).closest('.event-card').find('h3').text();
+    showModal('Registration Confirmed', You have successfully registered for the "${eventTitle}" event.);
+  });
 });

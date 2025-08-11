@@ -560,3 +560,69 @@ footer {
       color: red;
       margin-top: 0.5rem;
     }
+/* ========================================= */
+/* Events & Workshops Page Styles */
+/* ========================================= */
+
+.events-page-content {
+    padding: 30px 20px;
+}
+
+.section-heading {
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+.past-events {
+    margin-top: 50px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.event-card h3 {
+    color: #002147;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    margin-bottom: 5px;
+}
+
+.register-btn {
+    background-color: #005bbb;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.register-btn:hover {
+    background-color: #003f7d;
+}
+
+.past-events-list {
+    list-style: disc;
+    padding-left: 20px;
+}

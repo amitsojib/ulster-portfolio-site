@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Ulster University Library</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  
+  <header>
+    <a href="index.html" class="logo">
+      <img src="images/Logo.png" alt="Ulster University Library Logo" />
+    </a>
+    
+    <form id="searchForm" class="search-container">
+      <input type="text" id="searchInput" placeholder="Search the library..."/>
+      <button type="submit">Search</button>
+    </form>
+    
+    <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+  </header>
+
+  <nav class="main-nav">
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Resources.html">Resources</a></li>
+      <li><a href="Events-Workshops.html">Events-Workshops</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="Login.html">User Log-in</a></li>
+    </ul>
+  </nav>
+
+  <main class="events-page-content">
+    <section class="upcoming-events">
+      <h2 class="section-heading">Upcoming Events</h2>
+      <div class="event-grid">
+
+        <div class="event-card">
+          <h3>Academic Writing Workshop</h3>
+          <p><strong>Date:</strong> August 15, 2025</p>
+          <p><strong>Time:</strong> 2:00 PM – 4:00 PM</p>
+          <p>Join us to learn tips and strategies for writing effective academic papers.</p>
+          <button class="register-btn">Register</button>
+        </div>
+
+        <div class="event-card">
+          <h3>Research Skills Bootcamp</h3>
+          <p><strong>Date:</strong> August 22, 2025</p>
+          <p><strong>Time:</strong> 10:00 AM – 1:00 PM</p>
+          <p>Improve your research abilities using academic databases and resources.</p>
+          <button class="register-btn">Register</button>
+        </div>
+
+        <div class="event-card">
+          <h3>Time Management for Students</h3>
+          <p><strong>Date:</strong> August 29, 2025</p>
+          <p><strong>Time:</strong> 11:00 AM – 12:30 PM</p>
+          <p>Learn practical techniques to stay organized and boost your productivity.</p>
+          <button class="register-btn">Register</button>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="past-events">
+      <h2 class="section-heading">Past Workshops</h2>
+      <ul class="past-events-list">
+        <li>Effective Note-taking Strategies – July 2025</li>
+        <li>Library Orientation Tour – June 2025</li>
+        <li>Plagiarism Awareness Seminar – May 2025</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>©️ 2025 Ulster University Library</p>
+  </footer>
+
+  <div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-message"></p>
+      <button class="modal-close-btn">Close</button>
+    </div>
+  </div>
+
+  <div id="cookie-consent-modal">
+    <div class="cookie-content">
+      <p>This website uses cookies to ensure you get the best experience on our site. <a href="#">Learn more</a></p>
+      <button id="accept-cookies-btn">Accept</button>
+    </div>
+  </div>
+
+</body>
+</html>
