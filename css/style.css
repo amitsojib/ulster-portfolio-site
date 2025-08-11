@@ -426,6 +426,7 @@ footer {
 .social-links ul li img:hover {
   transform: scale(1.1);
 }
+<<<<<<< HEAD
 /* Additional login page styles */
     .login-container {
       max-width: 400px;
@@ -469,6 +470,8 @@ footer {
       color: red;
       margin-top: 0.5rem;
     }
+=======
+>>>>>>> c9235b4c266f69ffa61bd6afe396bc10745c8c82
 /* Resources Page Styles */
 
 /* Intro section styles */
