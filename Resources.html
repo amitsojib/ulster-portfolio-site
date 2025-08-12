@@ -1,111 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Resources – Ulster University Library</title>
-    <link rel="stylesheet" href="css/style.css" />
-      <link rel="icon" type="image/png" href="images/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources – Ulster University Library</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
 </head>
-<body class="requires-login"> <header>
-        <a href="index.html" class="logo">
-            <img src="images/Logo.png" alt="Ulster University Library Logo" />
-        </a>
-        <form id="searchForm" class="search-container">
-            <input type="text" id="searchInput" placeholder="Search the library..."/>
-            <button type="submit">Search</button>
-        </form>
-        <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
-    </header>
+<body class="requires-login">
+  <header>
+    <a href="index.html" class="logo">
+      <img src="images/Logo.png" alt="Ulster University Library Logo" />
+    </a>
+    
+    <form id="searchForm" class="search-container">
+      <input type="text" id="searchInput" placeholder="Search the library..."/>
+      <button type="submit">Search</button>
+    </form>
+    
+    <button id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+  </header>
 
-    <nav class="main-nav">
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Resources.html" class="active">Resources</a></li>
-            <li><a href="Events-Workshops.html"> Events-Workshops</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="Login.html">User Log-in</a></li>
-        </ul>
-    </nav>
+  <nav class="main-nav">
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Resources.html" class="active">Resources</a></li>
+      <li><a href="Events-Workshops.html">Events-Workshops</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="Login.html">User Log-in</a></li>
+    </ul>
+  </nav>
 
-    <main class="content-container">
-        <section id="resources-intro">
-            <h2>Welcome to our Resources Hub!</h2>
-            <p>Access a world of knowledge with our curated list of databases, e-books, and support services designed to help you succeed in your studies and research.</p>
-        </section>
+  <main class="content-container">
+    <section id="resources-intro">
+      <h2>Welcome to our Enhanced Resources Hub!</h2>
+      <p>Access a world of knowledge with our curated list of databases, e-books, and support services designed to help you succeed in your studies and research. Each resource is just a click away.</p>
+    </section>
 
-        <section id="resource-cards">
-            <div class="card-grid">
-
-                <div class="card">
-                    <h3>Academic Databases</h3>
-                    <p>Access a wide range of academic journals, articles, and research papers from databases like JSTOR, Scopus, and more.</p>
-                    <img src="images/Academic databases.jpg">
-                    <a href="#" class="btn">Explore Databases</a>
-                </div>
-
-                <div class="card">
-                    <h3>E-Journals and Articles</h3>
-                    <p>Search for specific e-journals or browse through our extensive collection of articles across all academic fields.</p>
-                    <img src="images/online-journals.jpg">
-                    <a href="#" class="btn">Browse E-Journals</a>
-                </div>
-                
-                <div class="card">
-                    <h3>E-Books and Library Catalog</h3>
-                    <p>Find and borrow thousands of e-books and physical books available in our library collections. Search by title, author, or subject.</p>
-                    <img src="images/interlibrary-loan.jpg">
-                    <a href="#" class="btn">Search the Catalog</a>
-                </div>
-
-                <div class="card">
-                    <h3>Study Space Booking</h3>
-                    <p>Reserve a quiet study pod, a computer, or a group study room at any of our campus libraries for your next session.</p>
-                    <img src="images/Study space support.jpg">
-                    <a href="#" class="btn">Book a Space</a>
-                </div>
-
-                <div class="card">
-                    <h3>Librarian Support</h3>
-                    <p>Get personalized help with your research and citation questions. Chat with a librarian or book a one-on-one consultation.</p>
-                    <img src="images/Librarian Support.jpg">
-                    <a href="#" class="btn">Ask a Librarian</a>
-                </div>
-
-                <div class="card">
-                    <h3>Research Guides</h3>
-                    <p>Browse our collection of guides on topics like citing sources, effective search strategies, and using reference management tools.</p>
-                    <img src="images/Research Guides.jpg">
-                    <a href="#" class="btn">View Guides</a>
-                </div>
-
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Ulster University Library</p>
-    </footer>
-
-    <div id="confirmation-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-message"></p>
-            <button class="modal-close-btn">Go to Resources</button>
+    <section id="resource-cards">
+      <div class="card-grid">
+        <div class="card">
+          <img src="images/Academic databases.jpg" alt="Academic Databases">
+          <div class="card-content">
+            <h3>Academic Databases</h3>
+            <p>Access a wide range of academic journals, articles, and research papers from databases like JSTOR, Scopus, and more.</p>
+            <a href="#databases" class="btn" onclick="showResource('databases')">Explore Databases</a>
+          </div>
         </div>
+
+        <div class="card">
+          <img src="images/online-journals.jpg" alt="E-Journals">
+          <div class="card-content">
+            <h3>E-Journals and Articles</h3>
+            <p>Search for specific e-journals or browse through our extensive collection of articles across all academic fields.</p>
+            <a href="#ejournals" class="btn" onclick="showResource('ejournals')">Browse E-Journals</a>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="images/interlibrary-loan.jpg" alt="Library Catalog">
+          <div class="card-content">
+            <h3>E-Books and Library Catalog</h3>
+            <p>Find and borrow thousands of e-books and physical books available in our library collections. Search by title, author, or subject.</p>
+            <a href="#catalog" class="btn" onclick="showResource('catalog')">Search the Catalog</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/Study space support.jpg" alt="Study Space">
+          <div class="card-content">
+            <h3>Study Space Booking</h3>
+            <p>Reserve a quiet study pod, a computer, or a group study room at any of our campus libraries for your next session.</p>
+            <a href="#booking" class="btn" onclick="showResource('booking')">Book a Space</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/Librarian Support.jpg" alt="Librarian Support">
+          <div class="card-content">
+            <h3>Librarian Support</h3>
+            <p>Get personalized help with your research and citation questions. Chat with a librarian or book a one-on-one consultation.</p>
+            <a href="#librarian" class="btn" onclick="showResource('librarian')">Ask a Librarian</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/Research Guides.jpg" alt="Research Guides">
+          <div class="card-content">
+            <h3>Research Guides</h3>
+            <p>Browse our collection of guides on topics like citing sources, effective search strategies, and using reference management tools.</p>
+            <a href="#guides" class="btn" onclick="showResource('guides')">View Guides</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Resource Subpages (hidden by default) -->
+  <div id="databases" class="resource-container" style="display: none;">
+    <div class="resource-header">
+      <h1>Academic Databases</h1>
+      <p>Access world-class research materials through our extensive collection of academic databases</p>
     </div>
     
-    <div id="cookie-consent-modal">
-        <div class="cookie-content">
-            <p>This website uses cookies to ensure you get the best experience on our site. <a href="#">Learn more</a></p>
-            <button id="accept-cookies-btn">Accept</button>
+    <div class="resource-content">
+      <p>Our library provides access to a comprehensive range of academic databases covering all disciplines. These resources include peer-reviewed journals, conference proceedings, e-books, and specialized datasets.</p>
+      
+      <h2>Featured Databases</h2>
+      
+      <div class="database-list">
+        <div class="database-card">
+          <h3>JSTOR</h3>
+          <p>A digital library of academic journals, books, and primary sources covering arts, humanities, and social sciences.</p>
+          <a href="#" class="database-link">Access JSTOR →</a>
         </div>
+        
+        <div class="database-card">
+          <h3>Scopus</h3>
+          <p>The largest abstract and citation database of peer-reviewed literature with smart tools to track, analyze and visualize research.</p>
+          <a href="#" class="database-link">Access Scopus →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>Web of Science</h3>
+          <p>A platform that provides access to multiple databases that reference cross-disciplinary research.</p>
+          <a href="#" class="database-link">Access Web of Science →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>PubMed</h3>
+          <p>A free resource supporting the search and retrieval of biomedical and life sciences literature.</p>
+          <a href="#" class="database-link">Access PubMed →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>IEEE Xplore</h3>
+          <p>A research database for discovery and access to scientific and technical content.</p>
+          <a href="#" class="database-link">Access IEEE Xplore →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>ScienceDirect</h3>
+          <p>Full-text scientific database offering journal articles and book chapters from more than 2,500 journals.</p>
+          <a href="#" class="database-link">Access ScienceDirect →</a>
+        </div>
+      </div>
+      
+      <h2>Database Search Tips</h2>
+      <p>To get the most out of our databases:</p>
+      <ul>
+        <li>Use specific keywords rather than full sentences</li>
+        <li>Utilize Boolean operators (AND, OR, NOT) to refine your search</li>
+        <li>Take advantage of advanced search filters</li>
+        <li>Set up alerts for new publications in your research area</li>
+      </ul>
+      
+      <a href="#" class="back-link" onclick="showResource('main')">← Back to Resources</a>
     </div>
+  </div>
+  
+  <div id="ejournals" class="resource-container" style="display: none;">
+    <div class="resource-header">
+      <h1>E-Journals and Articles</h1>
+      <p>Explore our extensive collection of electronic journals and scholarly articles</p>
+    </div>
+    
+    <div class="resource-content">
+      <p>Ulster University Library provides access to over 100,000 e-journals across all academic disciplines. Our collection includes the latest research publications, historical archives, and specialized periodicals.</p>
+      
+      <h2>Browse by Subject</h2>
+      
+      <div class="form-group">
+        <select>
+          <option>Select a subject area</option>
+          <option>Arts & Humanities</option>
+          <option>Business & Economics</option>
+          <option>Engineering & Technology</option>
+          <option>Health Sciences</option>
+          <option>Social Sciences</option>
+          <option>Natural Sciences</option>
+        </select>
+      </div>
+      
+      <h2>Featured Journals</h2>
+      
+      <div class="database-list">
+        <div class="database-card">
+          <h3>Nature</h3>
+          <p>International weekly journal of science, publishing peer-reviewed research in all fields of science and technology.</p>
+          <a href="#" class="database-link">Browse Nature →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>The Lancet</h3>
+          <p>World-leading medical journal committed to publishing the best science for better lives.</p>
+          <a href="#" class="database-link">Browse The Lancet →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>Journal of Business Ethics</h3>
+          <p>Publishes original articles from a wide variety of methodological and disciplinary perspectives.</p>
+          <a href="#" class="database-link">Browse Journal →</a>
+        </div>
+      </div>
+      
+      <h2>Search E-Journals</h2>
+      <div class="form-group">
+        <input type="text" placeholder="Search by journal title, ISSN, or keywords">
+      </div>
+      <button class="btn">Search Journals</button>
+      
+      <a href="#" class="back-link" onclick="showResource('main')">← Back to Resources</a>
+    </div>
+  </div>
+  
+  <div id="catalog" class="resource-container" style="display: none;">
+    <div class="resource-header">
+      <h1>Library Catalog</h1>
+      <p>Search our extensive collection of books, e-books, and other materials</p>
+    </div>
+    
+    <div class="resource-content">
+      <p>Our library catalog provides access to over 500,000 physical items and 200,000 e-books. Search by title, author, subject, ISBN, or keyword to find the resources you need.</p>
+      
+      <div class="search-box" style="margin: 30px 0;">
+        <input type="text" placeholder="Search the library catalog...">
+        <button class="btn" style="border-radius: 0 6px 6px 0; margin: 0; width: auto;">Search</button>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Format</label>
+          <select>
+            <option>All Formats</option>
+            <option>Books</option>
+            <option>E-books</option>
+            <option>Journals</option>
+            <option>Audio-Visual</option>
+            <option>Theses</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Location</label>
+          <select>
+            <option>All Locations</option>
+            <option>Main Library</option>
+            <option>Science Library</option>
+            <option>Medical Library</option>
+            <option>Online Resources</option>
+          </select>
+        </div>
+      </div>
+      
+      <h2>Featured Collections</h2>
+      
+      <div class="database-list">
+        <div class="database-card">
+          <h3>New Arrivals</h3>
+          <p>Browse our most recently acquired books and resources across all subject areas.</p>
+          <a href="#" class="database-link">View New Arrivals →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>Course Reserves</h3>
+          <p>Find materials reserved by instructors for specific courses.</p>
+          <a href="#" class="database-link">View Course Reserves →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>Special Collections</h3>
+          <p>Explore rare books, manuscripts, archives, and other unique materials.</p>
+          <a href="#" class="database-link">View Special Collections →</a>
+        </div>
+      </div>
+      
+      <a href="#" class="back-link" onclick="showResource('main')">← Back to Resources</a>
+    </div>
+  </div>
+  
+  <div id="booking" class="resource-container" style="display: none;">
+    <div class="resource-header">
+      <h1>Study Space Booking</h1>
+      <p>Reserve your ideal study environment in our library facilities</p>
+    </div>
+    
+    <div class="resource-content">
+      <p>Our library offers a variety of study spaces to suit different needs. Whether you need a quiet individual space or a collaborative group area, we have options available.</p>
+      
+      <div class="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Booking Date</label>
+            <input type="date">
+          </div>
+          
+          <div class="form-group">
+            <label>Time Slot</label>
+            <select>
+              <option>9:00 AM - 11:00 AM</option>
+              <option>11:00 AM - 1:00 PM</option>
+              <option>1:00 PM - 3:00 PM</option>
+              <option>3:00 PM - 5:00 PM</option>
+              <option>5:00 PM - 7:00 PM</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Space Type</label>
+          <select>
+            <option>Individual Study Pod</option>
+            <option>Group Study Room (2-4 people)</option>
+            <option>Group Study Room (4-6 people)</option>
+            <option>Computer Station</option>
+            <option>Silent Study Area</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Duration</label>
+          <select>
+            <option>2 hours</option>
+            <option>3 hours</option>
+            <option>4 hours</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Special Requirements</label>
+          <textarea rows="3" placeholder="Accessibility needs, equipment requirements, etc."></textarea>
+        </div>
+        
+        <button class="btn">Check Availability</button>
+      </div>
+      
+      <h2>Study Space Features</h2>
+      
+      <ul>
+        <li><strong>Individual Study Pods:</strong> Soundproof, private spaces for focused work</li>
+        <li><strong>Group Study Rooms:</strong> Equipped with large monitors, whiteboards, and video conferencing</li>
+        <li><strong>Computer Stations:</strong> High-performance computers with specialized software</li>
+        <li><strong>Silent Study Areas:</strong> Strictly enforced quiet zones for deep concentration</li>
+      </ul>
+      
+      <a href="#" class="back-link" onclick="showResource('main')">← Back to Resources</a>
+    </div>
+  </div>
+  
+  <div id="librarian" class="resource-container" style="display: none;">
+    <div class="resource-header">
+      <h1>Ask a Librarian</h1>
+      <p>Get expert research assistance from our professional librarians</p>
+    </div>
+    
+    <div class="resource-content">
+      <p>Our team of subject-specialist librarians is here to support your research and learning. Contact us through the form below, or visit us during our consultation hours.</p>
+      
+      <div class="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text">
+          </div>
+          
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Subject Area</label>
+          <select>
+            <option>Select a subject area</option>
+            <option>Arts & Humanities</option>
+            <option>Business & Economics</option>
+            <option>Engineering & Technology</option>
+            <option>Health Sciences</option>
+            <option>Social Sciences</option>
+            <option>Natural Sciences</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Question Type</label>
+          <select>
+            <option>Research Assistance</option>
+            <option>Database Access</option>
+            <option>Citation Help</option>
+            <option>Literature Search</option>
+            <option>Technical Support</option>
+            <option>Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Your Question</label>
+          <textarea rows="5" placeholder="Please provide details about your research question or information need..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Preferred Contact Method</label>
+          <div>
+            <label><input type="radio" name="contact" checked> Email</label>
+            <label><input type="radio" name="contact"> Phone</label>
+            <label><input type="radio" name="contact"> In-Person Meeting</label>
+          </div>
+        </div>
+        
+        <button class="btn">Submit Question</button>
+      </div>
+      
+      <h2>Consultation Hours</h2>
+      <p>Librarians are available for in-person consultations Monday-Friday from 9:00 AM to 5:00 PM. Virtual consultations are available by appointment.</p>
+      
+      <a href="#" class="back-link" onclick="showResource('main')">← Back to Resources</a>
+    </div>
+  </div>
+  
+  <div id="guides" class="resource-container" style="display: none;">
+    <div class="resource-header">
+      <h1>Research Guides</h1>
+      <p>Expert-curated guides to support your academic research</p>
+    </div>
+    
+    <div class="resource-content">
+      <p>Our research guides are developed by subject specialists to help you navigate library resources effectively. These guides provide step-by-step instructions, tips, and recommended resources for various research tasks.</p>
+      
+      <h2>Popular Guides</h2>
+      
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-icon">📚</div>
+          <h3>Citation Styles Guide</h3>
+          <p>Learn how to properly cite sources in APA, MLA, Chicago, and other academic styles.</p>
+          <a href="#" class="btn">View Guide</a>
+        </div>
+        
+        <div class="guide-card">
+          <div class="guide-icon">🔍</div>
+          <h3>Advanced Search Strategies</h3>
+          <p>Master database searching with Boolean operators, subject headings, and other techniques.</p>
+          <a href="#" class="btn">View Guide</a>
+        </div>
+        
+        <div class="guide-card">
+          <div class="guide-icon">📝</div>
+          <h3>Thesis Writing Guide</h3>
+          <p>Comprehensive support for planning, researching, and writing your dissertation.</p>
+          <a href="#" class="btn">View Guide</a>
+        </div>
+        
+        <div class="guide-card">
+          <div class="guide-icon">💻</div>
+          <h3>Reference Management Tools</h3>
+          <p>Learn to use Zotero, Mendeley, and EndNote for managing citations and bibliographies.</p>
+          <a href="#" class="btn">View Guide</a>
+        </div>
+        
+        <div class="guide-card">
+          <div class="guide-icon">📊</div>
+          <h3>Data Management Guide</h3>
+          <p>Best practices for organizing, documenting, and preserving research data.</p>
+          <a href="#" class="btn">View Guide</a>
+        </div>
+        
+        <div class="guide-card">
+          <div class="guide-icon">🔒</div>
+          <h3>Copyright & Fair Use</h3>
+          <p>Understand copyright law and how it applies to your research and teaching.</p>
+          <a href="#" class="btn">View Guide</a>
+        </div>
+      </div>
+      
+      <h2>Browse by Subject</h2>
+      
+      <div class="database-list">
+        <div class="database-card">
+          <h3>Arts & Humanities</h3>
+          <p>Guides for literature, history, philosophy, languages, and performing arts.</p>
+          <a href="#" class="database-link">View Guides →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>Sciences</h3>
+          <p>Resources for biology, chemistry, physics, mathematics, and environmental science.</p>
+          <a href="#" class="database-link">View Guides →</a>
+        </div>
+        
+        <div class="database-card">
+          <h3>Social Sciences</h3>
+          <p>Guides for psychology, sociology, political science, economics, and education.</p>
+          <a href="#" class="database-link">View Guides →</a>
+        </div>
+      </div>
+      
+      <a href="#" class="back-link" onclick="showResource('main')">← Back to Resources</a>
+    </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="js/script.js" defer></script>
-<button id="back-to-top-btn" title="Go to top">▲</button>
+  <footer>
+    <p>© 2025 Ulster University Library</p>
+  </footer>
+
+  <div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-message"></p>
+      <button class="modal-close-btn">Go to Resources</button>
+    </div>
+  </div>
+  
+  <div id="cookie-consent-modal">
+    <div class="cookie-content">
+      <p>This website uses cookies to ensure you get the best experience on our site. <a href="#">Learn more</a></p>
+      <button id="accept-cookies-btn">Accept</button>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <button id="back-to-top-btn" title="Go to top">▲</button>
 </body>
 </html>

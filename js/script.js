@@ -223,3 +223,82 @@ $('#contactForm').on('submit', function(e) {
 
 });
 
+// Navigation toggle functionality
+    document.getElementById('nav-toggle').addEventListener('click', function() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('show');
+    });
+    
+    // Resource navigation functionality
+    function showResource(resourceId) {
+      // Hide all resource containers
+      document.querySelectorAll('.resource-container').forEach(el => {
+        el.style.display = 'none';
+      });
+      
+      // Show the selected resource
+      if (resourceId !== 'main') {
+        document.getElementById(resourceId).style.display = 'block';
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
+    }
+    
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('back-to-top-btn');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById('confirmation-modal');
+    const closeButton = document.querySelector('.close-button');
+    const modalCloseBtn = document.querySelector('.modal-close-btn');
+    
+    closeButton.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+    
+    modalCloseBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Cookie consent functionality
+    const cookieModal = document.getElementById('cookie-consent-modal');
+    const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+    
+    acceptCookiesBtn.addEventListener('click', () => {
+      cookieModal.style.display = 'none';
+      // Set cookie acceptance in localStorage or cookies
+      localStorage.setItem('cookiesAccepted', 'true');
+    });
+    
+    // Check if cookies were already accepted
+    if (localStorage.getItem('cookiesAccepted')) {
+      cookieModal.style.display = 'none';
+    }
+    
+    // Form submission handling
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const searchTerm = document.getElementById('searchInput').value;
+      if (searchTerm.trim() !== '') {
+        document.getElementById('modal-title').textContent = 'Search Results';
+        document.getElementById('modal-message').textContent = `We found 24 resources related to "${searchTerm}"`;
+        modal.style.display = 'flex';
+      }
+    });
