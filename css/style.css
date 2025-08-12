@@ -452,8 +452,9 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
 /* Individual Card Styles */
 .card {
     background-color: white;
@@ -495,28 +496,6 @@ footer {
 .card .btn:hover {
     background-color: #003f7d;
 }
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
-    gap: 20px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Responsive: stack to fewer columns on smaller screens */
-@media (max-width: 900px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Additional login page styles */
     .login-container {
       max-width: 400px;
@@ -625,4 +604,31 @@ footer {
 .past-events-list {
     list-style: disc;
     padding-left: 20px;
+}
+/* Back to Top Button Styles */
+#back-to-top-btn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* Place button 20px from the bottom */
+    right: 20px; /* Place button 20px from the right */
+    z-index: 99; /* Ensure it's on top of other elements */
+    font-size: 24px;
+    background-color: #005bbb;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%; /* Make it a circle */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#back-to-top-btn.show {
+    display: block; /* Show the button when the 'show' class is added */
+}
+
+#back-to-top-btn:hover {
+    background-color: #003f7d;
+    transform: scale(1.1);
 }
