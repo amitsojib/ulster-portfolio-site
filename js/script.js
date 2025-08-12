@@ -40,50 +40,72 @@ $(document).ready(function() {
         searchInput.val('');
     });
 
-    // Contact form validation and cookie storage (for the contact page)
-    $('#contactForm').on('submit', function(e) {
-        e.preventDefault();
+// Contact form validation and cookie storage (for the contact page)
+$('#contactForm').on('submit', function(e) {
+    e.preventDefault();
 
-        let isValid = true;
-        $('input, textarea').removeClass('error');
+    let isValid = true;
+    $('input, textarea').removeClass('error');
 
-        const name = $('#name').val().trim();
-        const email = $('#email').val().trim();
-        const phone = $('#phone').val().trim();
-        const message = $('#message').val().trim();
-        const termsChecked = $('#terms').is(':checked');
+    const name = $('#name').val().trim();
+    const email = $('#email').val().trim();
+    const phone = $('#phone').val().trim();
+    const message = $('#message').val().trim();
+    const termsChecked = $('#terms').is(':checked');
 
-        if (name === '') {
-            $('#name').addClass('error');
-            isValid = false;
-        }
-        if (email === '') {
-            $('#email').addClass('error');
-            isValid = false;
-        }
-        if (phone === '') {
-            $('#phone').addClass('error');
-            isValid = false;
-        }
-        if (message === '') {
-            $('#message').addClass('error');
-            isValid = false;
-        }
-        if (!termsChecked) {
-            showModal('Error', 'You must accept the terms and conditions to proceed.');
-            isValid = false;
-        }
+    // Regex for email, name, and phone
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    const phoneRegex = /^[0-9]+$/;
 
-        if (!isValid) return;
+    if (name === '') {
+        $('#name').addClass('error');
+        isValid = false;
+    }
+    // NEW: Check if the name contains only letters and spaces
+    else if (!nameRegex.test(name)) {
+        $('#name').addClass('error');
+        showModal('Error', 'Please enter a proper name (letters and spaces only).');
+        isValid = false;
+    }
+    if (email === '') {
+        $('#email').addClass('error');
+        isValid = false;
+    }
+    else if (!emailRegex.test(email)) {
+        $('#email').addClass('error');
+        showModal('Error', 'Please enter a valid email address.');
+        isValid = false;
+    }
+    if (phone === '') {
+        $('#phone').addClass('error');
+        isValid = false;
+    }
+    // NEW: Check if the phone number contains only digits
+    else if (!phoneRegex.test(phone)) {
+        $('#phone').addClass('error');
+        showModal('Error', 'Please enter a valid phone number (numbers only).');
+        isValid = false;
+    }
+    if (message === '') {
+        $('#message').addClass('error');
+        isValid = false;
+    }
+    if (!termsChecked) {
+        showModal('Error', 'You must accept the terms and conditions to proceed.');
+        isValid = false;
+    }
 
-        document.cookie = `contactName=${name}; path=/`;
-        document.cookie = `contactEmail=${email}; path=/`;
-        document.cookie = `contactPhone=${phone}; path=/`;
-        
-        showModal('Message Sent!', 'Thank you for contacting us. We will get back to you shortly.');
+    if (!isValid) return;
 
-        $(this).trigger('reset');
-    });
+    document.cookie = `contactName=${name}; path=/`;
+    document.cookie = `contactEmail=${email}; path=/`;
+    document.cookie = `contactPhone=${phone}; path=/`;
+    
+    showModal('Message Sent!', 'Thank you for contacting us. We will get back to you shortly.');
+
+    $(this).trigger('reset');
+});
 
     // Reusable function to show the modal with custom content
     const modal = $('#confirmation-modal');
